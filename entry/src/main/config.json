@@ -1,0 +1,77 @@
+{
+  "app": {
+    "bundleName": "cn.dsttl3.dome.weibologin",
+    "vendor": "dsttl3",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "cn.dsttl3.dome.weibologin",
+    "name": ".MyApplication",
+    "mainAbility": "cn.dsttl3.dome.weibologin.MainAbility",
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry",
+      "installationFree": false
+    },
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      }
+    ],
+    "metaData": {
+      "customizeData": [
+        {
+          "name": "hwc-theme",
+          "value": "androidhwext:style/Theme.Emui.NoTitleBar"
+        }
+      ]
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "orientation": "unspecified",
+        "name": "cn.dsttl3.dome.weibologin.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:entry_MainAbility",
+        "label": "$string:app_name",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "cn.dsttl3.dome.weibologin.WeiBoLogin",
+        "icon": "$media:icon",
+        "description": "$string:entry_MainAbility",
+        "label": "$string:app_name",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "cn.dsttl3.dome.weibologin.MyAbility",
+        "icon": "$media:icon",
+        "description": "$string:myability_description",
+        "label": "$string:entry_MyAbility",
+        "type": "page",
+        "launchType": "standard"
+      }
+    ]
+  }
+}

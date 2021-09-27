@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:alignment="center"
+    ohos:orientation="vertical">
+    <Button
+        ohos:id="$+id:Btn_login"
+        ohos:height="48px"
+        ohos:width="239px"
+        ohos:background_element="$media:login48"
+        ohos:text_size="38vp"/>
+
+</DirectionalLayout>

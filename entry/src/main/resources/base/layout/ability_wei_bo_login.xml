@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <Text
+        ohos:id="$+id:Text_weibologin"
+        ohos:height="23vp"
+        ohos:width="match_parent"
+        ohos:text_size="13vp"
+        ohos:text="$string:app_name"
+        ohos:background_element="#aaaaaa"
+        ohos:multiple_lines="false"
+        />
+    <ohos.agp.components.webengine.WebView
+        ohos:id="$+id:WebView_weibologin"
+        ohos:weight="1"
+        ohos:height="match_parent"
+        ohos:width="match_parent"/>
+
+</DirectionalLayout>

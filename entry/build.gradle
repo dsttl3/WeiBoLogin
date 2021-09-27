@@ -1,0 +1,40 @@
+apply plugin: 'com.huawei.ohos.hap'
+apply plugin: 'com.huawei.ohos.decctest'
+//For instructions on signature configuration, see https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#ZH-CN_TOPIC_0000001154985555__section1112183053510
+ohos {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\dsttl\\.ohos\\config\\auto_debug_40086000303118792.p12')
+            storePassword '000000184E8029C02C631F9DC8F19B79D1B404456F13FC842AFF2853F8549B19FF21334612ED2ECC'
+            keyAlias = 'debugKey'
+            keyPassword '00000018ED49719F044EDD4F51BB72E93DA7254940440F09536FE1B2403C3898D198540DC79F5F96'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\dsttl\\.ohos\\config\\auto_debug_weibologin_40086000303118792.p7b')
+            certpath file('C:\\Users\\dsttl\\.ohos\\config\\auto_debug_40086000303118792.cer')
+        }
+    }
+    compileSdkVersion 5
+    defaultConfig {
+        compatibleSdkVersion 5
+    }
+    buildTypes {
+        release {
+            proguardOpt {
+                proguardEnabled false
+                rulesFiles 'proguard-rules.pro'
+            }
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+    testImplementation 'junit:junit:4.13'
+    ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '5.0.0-alpha.2'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.7'
+}
+decc {
+    supportType = ['html', 'xml']
+}
