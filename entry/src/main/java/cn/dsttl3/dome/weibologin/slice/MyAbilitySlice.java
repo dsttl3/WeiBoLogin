@@ -21,9 +21,14 @@ public class MyAbilitySlice extends AbilitySlice {
             @Override
             public void run() {
                 try {
+                    // 微博应用信息
+                    // App Key
                     String YOUR_CLIENT_ID = "2593566539";
+                    // App Secret
                     String YOUR_CLIENT_SECRET = "383fc6262e954e18f5b7efe3c9899284";
+                    // 授权回调页
                     String YOUR_REGISTERED_REDIRECT_URI = "https://api.dsttl3.cn";
+                    // 微博API地址，固定参数，不需要修改
                     String ACCESS_TOKEN_URL = "https://api.weibo.com/oauth2/access_token";
                     OkHttpClient client = new OkHttpClient();
                     FormBody body = new FormBody.Builder()

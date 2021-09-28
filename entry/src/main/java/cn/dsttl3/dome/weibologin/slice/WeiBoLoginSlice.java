@@ -27,18 +27,24 @@ public class WeiBoLoginSlice extends AbilitySlice {
         myWebView.getWebConfig().setJavaScriptPermit(true);
         myWebView.setWebAgent(new WebAgent(){
 
+            // 即将打开链接时调用该方法
             @Override
             public boolean isNeedLoadUrl(WebView webView, ResourceRequest request) {
 
+                // 判断是否打开微博客户端
                 if (request.getRequestUrl().toString().startsWith("sinaweibo")){
+                    // 打开微博客户端操作
                     Intent intent = new Intent();
                     intent.setAction("android.intent.action.VIEW");
                     intent.setUri(Uri.parse(request.getRequestUrl().toString()));
                     intent.addFlags(Intent.FLAG_ABILITY_NEW_MISSION);
                     startAbility(intent);
+                    // 不在webview操作
                     return false;
                 }
+                // 授权成功后的操作
                 if (request.getRequestUrl().toString().startsWith("https://api.dsttl3.cn/?code=")){
+                    // 截取url中的cookie
                     String code = request.getRequestUrl().toString().substring(28);
                     Intent intent = new Intent();
                     intent.setParam("code",code);
@@ -54,12 +60,14 @@ public class WeiBoLoginSlice extends AbilitySlice {
                 return true;
             }
 
+            // 打开链接时调用该方法
             @Override
             public void onLoadingPage(WebView webView, String url, PixelMap icon) {
                 super.onLoadingPage(webView, url, icon);
                 text.setText("正在访问：" + url);
             }
 
+            // 打开链接完成时调用该方法
             @Override
             public void onPageLoaded(WebView webView, String url) {
                 super.onPageLoaded(webView, url);
@@ -68,7 +76,12 @@ public class WeiBoLoginSlice extends AbilitySlice {
             }
         });
         //授权连接
-        myWebView.load("https://api.weibo.com/oauth2/authorize?client_id=2593566539&response_type=code&forcelogin=false&scope=all&redirect_uri=https%3A%2F%2Fapi.dsttl3.cn");
+        // App Key
+        String YOUR_CLIENT_ID = "2593566539";
+        // 授权回调页,需要url编码
+        String YOUR_REGISTERED_REDIRECT_URI = "https%3A%2F%2Fapi.dsttl3.cn";
+        // 打开网页
+        myWebView.load("https://api.weibo.com/oauth2/authorize?client_id="+YOUR_CLIENT_ID+"&response_type=code&forcelogin=false&scope=all&redirect_uri="+YOUR_REGISTERED_REDIRECT_URI);
     }
 
     @Override
